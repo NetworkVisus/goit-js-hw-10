@@ -10,11 +10,13 @@ const refs = {
   error: document.querySelector('.error'),
 };
 
+let slimSelect;
+
 catApi
   .fetchBreeds()
   .then(({ data }) => {
     refs.selector.insertAdjacentHTML('beforeend', fillSelect(data));
-    new SlimSelect({
+    slimSelect = new SlimSelect({
       select: refs.selector,
       settings: {
         disabled: false,
@@ -33,6 +35,7 @@ refs.selector.addEventListener('change', handleSelection);
 function handleSelection(event) {
   refs.catCard.style.display = 'none';
   refs.loader.hidden = false;
+  slimSelect.settings.disabled = true;
   catApi
     .fetchCatByBreed(event.currentTarget.value)
     .then(({ data }) => {
@@ -40,6 +43,7 @@ function handleSelection(event) {
       refs.catCard.style.display = 'flex';
       console.log(data);
       refs.catCard.innerHTML = createCatCard(data[0].breeds);
+      slimSelect.settings.disabled = false;
     })
     .catch(() => {
       refs.loader.hidden = true;
