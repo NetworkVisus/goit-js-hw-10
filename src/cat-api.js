@@ -13,3 +13,7 @@ export function fetchCatByBreed(breedId) {
     `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`
   );
 }
+
+export function fetchCatImgById(imgId) {
+  return axios.get(`https://api.thecatapi.com/v1/images/${imgId}`);
+}

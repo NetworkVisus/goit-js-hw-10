@@ -1,3 +1,5 @@
+@import '/node_modules/modern-normalize/modern-normalize.css';
+
 .loader {
   transform: rotateZ(45deg) translate(-50%, -50%);
   perspective: 1000px;
@@ -72,4 +74,61 @@
   87% {
     box-shadow: 0.2em -0.2em 0 0 currentcolor;
   }
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 10px 15px 10px;
+  color: #fff;
+  background-color: rgba(216, 0, 12, 0.7);
+  border-radius: 20px;
+}
+
+.breed-select {
+  margin: 20px;
+  max-width: 400px;
+}
+
+.cat-info {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: rgba(75, 3, 85, 0.89);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 600px;
+  color: rgba(243, 255, 245, 0.952);
+  border-radius: 100px;
+}
+
+.cat-info-descr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+.card-header {
+}
+
+.card-description {
+}
+
+.card-temperaments {
+}
+
+.temperament-span {
+  font-weight: 700;
 }
