@@ -35,6 +35,7 @@ refs.selector.addEventListener('change', handleSelection);
 function handleSelection(event) {
   refs.catCard.style.display = 'none';
   refs.loader.hidden = false;
+  refs.error.hidden = true;
   slimSelect.settings.disabled = true;
   catApi
     .fetchCatByBreed(event.currentTarget.value)
@@ -48,6 +49,9 @@ function handleSelection(event) {
     .catch(() => {
       refs.loader.hidden = true;
       refs.error.hidden = false;
+      refs.catCard.innerHTML = '';
+      refs.catCard.style.display = 'none';
+      slimSelect.settings.disabled = false;
     });
 }
 
